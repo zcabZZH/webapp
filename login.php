@@ -28,6 +28,11 @@ if(isset($_POST['submit'])){
 
             $pass1=md5($pass1);
 
+            $sql=mysql_query("SELECT * FROM `users` WHERE `uname`='$uname'");
+            if(mysql_num_rows($sql)>0){
+                echo "Sorry, that user already exists.";
+                exit();
+            }
             mysql_query("INSERT INTO `users` (`id`,`name`,`lname`,`uname`,`email`,`pass`) VALUES (NULL,'$name' ,'$lname','$uname','$email1','$pass1')");
 
 
