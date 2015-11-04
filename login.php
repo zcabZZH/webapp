@@ -26,7 +26,9 @@ if(isset($_POST['submit'])){
             $pass1=mysql_escape_string($pass1);
             $pass2=mysql_escape_string($pass2);
 
-            mysql_query("INSERT INTO `users` (`id`,`name`,`lname`,`uname`,`email`,`pass`) VALUES (NULL,'$name' ,'$lname','$uname','$email','$pass')");
+            $pass1=md5($pass1);
+
+            mysql_query("INSERT INTO `users` (`id`,`name`,`lname`,`uname`,`email`,`pass`) VALUES (NULL,'$name' ,'$lname','$uname','$email1','$pass1')");
 
 
         }else{
