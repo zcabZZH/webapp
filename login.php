@@ -18,6 +18,17 @@ if(isset($_POST['submit'])){
     if($email1 == $email2){
         if($pass1 == $pass2){
             //Verified.
+            $name=mysql_escape_string($_POST['name']);
+            $lname=mysql_escape_string($_POST['lname']);
+            $uname=mysql_escape_string($_POST['uname']);
+            $email1=mysql_escape_string($email1);
+            $email2=mysql_escape_string($email2);
+            $pass1=mysql_escape_string($pass1);
+            $pass2=mysql_escape_string($pass2);
+
+            mysql_query("INSERT INTO `users` (`id`,`name`,`lname`,`uname`,`email`,`pass`) VALUES (NULL,'$name' ,'$lname','$uname','$email','$pass')");
+
+
         }else{
             echo "Sorry, your passwords do not match. <br />";
             exit();
